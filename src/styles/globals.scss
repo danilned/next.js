@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Firs-Neue-Bold";
+  src: url("../assets/fonts/Firs Neue Bold.ttf");
+}
+
+@font-face {
+  font-family: "Firs-Neue-Light";
+  src: url("../assets/fonts/Firs Neue Light.ttf");
+}

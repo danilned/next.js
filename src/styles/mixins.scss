@@ -1,0 +1,11 @@
+@mixin block-title {
+  .title {
+    font-size: 34px;
+    font-family: Firs-Neue-Bold, sans-serif;
+  }
+  .subtitle {
+    margin-top: 16px;
+    font-size: 16px;
+    font-family: Firs-Neue-Light, sans-serif;
+  }
+}

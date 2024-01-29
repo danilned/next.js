@@ -1,0 +1,15 @@
+@import "@/styles/mixins.scss";
+
+.work-life-component {
+  background-color: #fff;
+  margin-top: 64px;
+  height: 670px;
+
+  .title-content {
+    @include block-title;
+  }
+
+  .carousel-container {
+    margin-top: 32px;
+  }
+}
