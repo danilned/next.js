@@ -9,12 +9,17 @@ import useEmblaCarousel from "embla-carousel-react";
 // // Styles
 import "@/styles/progress-carousel.scss";
 
-export default function ProgressCarousel({ children, slides }) {
+export default function ProgressCarousel({
+  children,
+  slides,
+  options,
+  autoPlay,
+}) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { align: "start", containScroll: false, loop: true },
-    [Autoplay()]
+    options ?? {},
+    autoPlay ? [Autoplay()] : []
   );
 
   const slidesIteration = new Array(slides).fill(null);
@@ -45,7 +50,6 @@ export default function ProgressCarousel({ children, slides }) {
     };
 
     emblaApi.on("scroll", onScroll);
-    emblaApi.on("reInit", onScroll);
 
     emblaApi.on("select", (emblaApi) =>
       setCurrentSlide(emblaApi.selectedScrollSnap())
@@ -61,22 +65,13 @@ export default function ProgressCarousel({ children, slides }) {
             className="carousel-dot"
             onClick={() => scrollTo(index)}
           >
-            <div
-              className="carousel-dots-progress"
-              style={
-                index === currentSlide
-                  ? {
-                      width: `${scrollProgress * slides - index * 100}%`,
-                    }
-                  : {}
-              }
-            />
+            <div className="carousel-dots-progress" />
           </div>
         ))}
       </div>
       <div className="carousel-viewport" ref={emblaRef}>
         <div className="carousel-content">
-          {children.map((cur, index) => (
+          {children.map((item, index) => (
             <div
               key={`carousel-${index}}`}
               className={clsx([
@@ -84,7 +79,7 @@ export default function ProgressCarousel({ children, slides }) {
                 { active: index === currentSlide },
               ])}
             >
-              {cur}
+              {item}
             </div>
           ))}
         </div>

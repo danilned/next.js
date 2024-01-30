@@ -6,6 +6,15 @@
   .subtitle {
     margin-top: 16px;
     font-size: 16px;
-    font-family: Firs-Neue-Light, sans-serif;
+    line-height: 120%;
+    &:not(.bold-subtitle) {
+      font-family: Firs-Neue-Light, sans-serif;
+    }
+    > .underline-subtitle {
+      text-decoration: underline;
+    }
+    > .bold-subtitle {
+      font-family: Firs-Neue-Bold, sans-serif;
+    }
   }
 }

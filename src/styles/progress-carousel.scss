@@ -1,9 +1,6 @@
-.progress-carousel-container {
-  --active-width: 280px;
-
+.progress-carousel-container,
+.common-carousel-container {
   .carousel-scroll-progress {
-    width: calc(var(--active-width) - 48px);
-    margin: 12px 28px;
     display: flex;
     gap: 7px;
   }
@@ -31,25 +28,7 @@
   }
 
   .carousel-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    min-width: var(--active-width);
-    height: 350px;
     overflow: hidden;
-    &:not(:first-child) {
-      margin-left: -12px;
-    }
-    > img {
-      width: 240px;
-      height: 300px;
-      border-radius: 16px;
-      transition: 0.4s ease-in;
-    }
-    &.active > img {
-      width: 100%;
-      height: 100%;
-    }
   }
 }
